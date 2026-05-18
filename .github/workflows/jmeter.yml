@@ -30,21 +30,15 @@ jobs:
 
       - name: Run JMeter Test
         run: |
-          mkdir -p results reports
-
-          jmeter/bin/jmeter -n \
-            -t tests/Task-2-Thread-Group.jmx
-            -l results/results.jtl
-
-          echo "JTL generated:"
-          ls results/
-
+            mkdir -p results reports
+        
+            jmeter/bin/jmeter -n \
+              -t Task-2-Thread-Group.jmx \
+              -l results/results.jtl
+        
       - name: Generate HTML Report
         run: |
-          jmeter/bin/jmeter -g results/results.jtl -o reports/
-
-          echo "Report generated:"
-          ls reports/
+            jmeter/bin/jmeter -g results/results.jtl -o reports/
 
       - name: Upload Report
         uses: actions/upload-artifact@v4
