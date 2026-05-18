@@ -33,7 +33,7 @@ jobs:
             mkdir -p results reports
         
             jmeter/bin/jmeter -n \
-              -t Task-2-Thread-Group.jmx \
+              -t tests/Task-2-Thread-Group.jmx \
               -l results/results.jtl
         
       - name: Generate HTML Report
